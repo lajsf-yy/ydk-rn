@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { View, TextStyle } from 'react-native'
 import { transformSize } from 'utils/transform'
 import Touchable from 'components/touchable'
-import Icon from 'components/Icon'
+import Icon from '../icon'
 
 
 export interface StarScoreProps {

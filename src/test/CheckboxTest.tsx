@@ -23,10 +23,10 @@ export default class CheckboxTest extends React.Component<any, CheckboxState> {
       <View style={{flex: 1}} >
         <ScrollView>
             <Checkbox selected={this.state.select} onPress={() => {
-              this.setState({select: true})
+              this.setState({select: !this.state.select})
             }}></Checkbox>
             <Checkbox selected={this.state.select} onPress={() => {
-              this.setState({select: true})
+              this.setState({select: !this.state.select})
             }}></Checkbox>
         </ScrollView>
       </View>

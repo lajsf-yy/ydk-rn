@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, AsyncStorage, ScrollView, Text} from 'react-native';
-import FlowList from 'components/flowlist/List';
+import FlowList from 'components/flow-list/List';
 
 export default class extends React.Component {
 

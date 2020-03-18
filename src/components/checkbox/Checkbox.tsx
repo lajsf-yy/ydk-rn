@@ -46,7 +46,7 @@ export default class extends React.PureComponent<IProps> {
       <Touchable onPress={() => this.props.onPress && this.props.onPress()}>
         {selected ? (
           <Icon
-            name="singleselection"
+            name="check-c"
             style={[styles.origin, this.props.style]}
             size={this.props.size || transformSize(26)}
             color={primary}

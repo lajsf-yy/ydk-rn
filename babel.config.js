@@ -16,6 +16,7 @@ module.exports = {
           styles: './src/styles',
           api: './src/api',
           test: './src/test',
+          uses: './src/uses',
           'native-modules': './src/native-modules',
         },
         cwd: 'babelrc',
