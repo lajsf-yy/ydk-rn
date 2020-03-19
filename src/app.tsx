@@ -7,6 +7,9 @@ import StarScore from 'components/star-score/StarScore';
 import HeaderTest from 'test/HeaderTest';
 import ToastTest from 'test/ToastTest';
 import OverlayTest from 'test/OverlayTest';
+import ActionSheetTest from 'test/ActionSheetTest';
+import SearchBar from 'components/search-bar';
+import SearchBarTest from 'test/SearchBarTest';
 
 export default class App extends React.Component {
 
@@ -18,6 +21,7 @@ export default class App extends React.Component {
     return (
       <View style={{flex: 1}} >
         <HeaderTest></HeaderTest>
+        <SearchBarTest></SearchBarTest>
         <ScrollView>
             <ButtonTest></ButtonTest>
             {/* <FlowListTest></FlowListTest> */}
@@ -25,6 +29,7 @@ export default class App extends React.Component {
             <StarScore></StarScore>
             <ToastTest></ToastTest>
             <OverlayTest></OverlayTest>
+            <ActionSheetTest></ActionSheetTest>
         </ScrollView>
       </View>
     ) 
