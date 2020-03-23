@@ -11,7 +11,6 @@ const SwitchTest = () => {
         <Switch
           trackColor={{ true: '#41D282', false: '#999' }}
           onValueChange={(newValue: boolean) => {
-            console.warn(newValue)
             setCharge(newValue)
           }}
           value={charge}

@@ -1,15 +1,27 @@
 import React from 'react';
-import {View, AsyncStorage, ScrollView, Text} from 'react-native';
+import {View, AsyncStorage, ScrollView, Text, Alert, Button} from 'react-native';
 import FlowList from 'components/flow-list/List';
 
 export default class extends React.Component {
 
   componentDidMount() {
-     this.request({pageSize: 20, pageNo: 1} )
+    
+  }
+
+  private flowRef = React.createRef<FlowList<any>>()
+
+  /**
+   * 拿取state的值
+   */
+  private getFlowRef = () => {
+    // 通过ref 拿取flowlist 对象的实例
+     const dat = this.flowRef.current.state.data;
+     alert(JSON.stringify(dat))
   }
 
   private URL = "https://api-mo.lajsf.com/gateway/search/v2.0/pb/nutrition-search/action/searchDiet";
 
+  //　请求的方法
   private request = (body: {}) => {
      return fetch(`${this.URL}?pageNo=${body.pageNo}&pageSize=${body.pageSize}&keyword=菜`, {
          method: "GET",
@@ -29,7 +41,6 @@ export default class extends React.Component {
   }
 
   renderItem = (item: any, index: number) => {
-      console.log(item, "renderItem")
       return (
           <View style={{height: 80}}>
               <Text style={{textAlign:"center", fontSize: 20}}>{item.dietName}</Text>
@@ -40,7 +51,9 @@ export default class extends React.Component {
   render() {
     return (
       <View style={{flex: 1}} >
+          <Button onPress={() => this.getFlowRef()} title="get ref"></Button>
           <FlowList 
+            ref={this.flowRef}
             renderItem={this.renderItem}
             api={this.request}>
           </FlowList>

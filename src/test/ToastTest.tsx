@@ -12,14 +12,19 @@ const ToastTest = () => {
       <ScrollView>
             <Button onPress={() => {
                 toast.show("hello")
-            }}>提示</Button>
-
+            }}>默认的toast</Button>
             <Button onPress={() => {
                 toast.success("hello")
             }}>提示success</Button>
             <Button onPress={() => {
                 toast.fail("hello")
-            }}>fail</Button>
+            }}>提示fail</Button>
+            <Button onPress={() => {
+                toast.info("hello")
+            }}>提示info</Button>
+            <Button onPress={() => {
+                toast.loading("hello")
+            }}>提示loading</Button>
       </ScrollView>
     </View>
   ) 
