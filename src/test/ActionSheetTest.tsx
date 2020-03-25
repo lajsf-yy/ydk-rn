@@ -3,6 +3,9 @@ import {View, AsyncStorage, ScrollView} from 'react-native';
 import { useActionSheet } from 'uses/useActionSheet';
 import Button from 'components/button';
 
+/**
+ * 一般场景
+ */
 const ActionSheetTest = () => {
     const actionSheet = useActionSheet()
     const popupSheet = () => {

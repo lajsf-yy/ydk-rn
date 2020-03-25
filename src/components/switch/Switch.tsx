@@ -25,17 +25,27 @@ export default class Switch extends React.Component<SwitchProps> {
     super(props)
   }
   state = {
-    value: this.props.value === true ? 1 : 0,
+    animatedValue: new Animated.Value(0)
   }
+
+  private preValue = this.props.value
+  componentWillReceiveProps(nextProps: SwitchProps) {
+    if (nextProps.value !== this.preValue) {
+       Animated.timing(this.state.animatedValue, {
+         toValue: nextProps.value === true ? 1 : 0,
+         duration: 200
+       }).start()
+    }
+    this.preValue = nextProps.value
+  }
+
   render() {
-    let { value } = this.state
-    let animatedValue = new Animated.Value(value)
-    let translateX = animatedValue.interpolate({
+    let translateX = this.state.animatedValue.interpolate({
       inputRange: [0, 1],
       outputRange: [0, transformSize(baseWidth - borderPadWidth * 2 - innerWidth)],
       extrapolate: 'clamp',
     })
-    let backColor = animatedValue.interpolate({
+    let backColor = this.state.animatedValue.interpolate({
       inputRange: [0, 1],
       outputRange: [this.props.inactiveColor, this.props.activeColor],
     })
@@ -48,11 +58,11 @@ export default class Switch extends React.Component<SwitchProps> {
     )
   }
   onPress = () => {
-    let { value } = this.state
-    this.setState({
-      value: !value,
-    })
-    this.props.onValueChange && this.props.onValueChange(!!this.state.value)
+    // let { value } = this.state
+    // this.setState({
+    //   value: !this.props.value,
+    // })
+    this.props.onValueChange && this.props.onValueChange(!this.props.value)
   }
 }
 

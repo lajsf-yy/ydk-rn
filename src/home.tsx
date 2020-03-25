@@ -26,6 +26,15 @@ const Home = () => {
         <Button title="StarScore"  onPress={() => {
             navigation.navigate("StarScoreTestScreen")
         }}>Header</Button>
+        <Button title="Overlay"  onPress={() => {
+            navigation.navigate("OverlayTestScreen")
+        }}>Header</Button>
+        <Button title="SearchBar"  onPress={() => {
+            navigation.navigate("SearchBarTestScreen")
+        }}>Header</Button>
+        <Button title="Switch"  onPress={() => {
+            navigation.navigate("SwitchTestScreen")
+        }}>Header</Button>
     </View>
   )
 }

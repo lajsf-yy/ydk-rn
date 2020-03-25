@@ -48,10 +48,16 @@ export default class extends React.Component {
       )
   }
 
+  renderGetRefDemo = () => {
+    return (
+      <Button onPress={() => this.getFlowRef()} title="get ref"></Button>
+    )
+  }
+
   render() {
     return (
       <View style={{flex: 1}} >
-          <Button onPress={() => this.getFlowRef()} title="get ref"></Button>
+          {this.renderGetRefDemo()}
           <FlowList 
             ref={this.flowRef}
             renderItem={this.renderItem}

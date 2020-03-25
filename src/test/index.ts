@@ -4,4 +4,17 @@ import FlowListTestScreen from "./FlowListTest"
 import HeaderTestScreen from "./HeaderTest"
 import ToastTestScreen from "./ToastTest"
 import StarScoreTestScreen from "./StarScoreTest"
-export default {ActionSheetTestScrren, ButtonTestScreen, FlowListTestScreen, HeaderTestScreen, ToastTestScreen, StarScoreTestScreen }
+import OverlayTestScreen from "./OverlayTest"
+import SearchBarTestScreen from "./SearchBarTest"
+import SwitchTestScreen from "./SwitchTest"
+export default {
+    ActionSheetTestScrren,
+    ButtonTestScreen, 
+    FlowListTestScreen,
+    HeaderTestScreen, 
+    ToastTestScreen, 
+    StarScoreTestScreen,
+    OverlayTestScreen,
+    SearchBarTestScreen,
+    SwitchTestScreen
+}

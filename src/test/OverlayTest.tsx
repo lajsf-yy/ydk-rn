@@ -10,22 +10,55 @@ import Touchable from 'components/touchable';
 const OverlayTest = () => {
   const overlay = useOverlay()
 
-  const popup = () => {
+  /**
+   * 一般场景, 由底部向上弹出
+   */
+  const popupUp = () => {
+     const options: any = {
+        popupType: "slide-up"
+     }
       overlay.show((props) => {
           return <Touchable onPress={props.onDismiss}><View style={{
               width: transformSize(686),
               height: transformSize(300),
               backgroundColor: "white"
           }}/></Touchable>
-      }, {
-          popupType: "slide-up"
-      })
+      },  options)
   }
+
+  const popupDown = () => {
+    const options: any = {
+      
+    }
+     overlay.show((props) => {
+         return <Touchable onPress={props.onDismiss}><View style={{
+             width: transformSize(686),
+             height: transformSize(300),
+             backgroundColor: "white"
+         }}/></Touchable>
+     },  {
+       /**
+        * 弹出类型
+        */
+      popupType: "slide-down",
+      /**
+       * 动画持续时间
+       */
+      animationDuration: 500,
+      /**
+       * 包裹当前容器的内部样式容器样式
+       */
+      containerStyle: {
+        backgroundColor: "green"
+      }
+     })
+ }
   
   return (
     <View style={{flex: 1}} >
       <ScrollView>
-            <Button onPress={popup}>show</Button>
+            <Button onPress={popupUp}>向上弹出</Button>
+            <Button onPress={popupDown}>顶部划出</Button>
       </ScrollView>
     </View>
   ) 
