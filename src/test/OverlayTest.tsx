@@ -1,9 +1,9 @@
 import React from 'react';
 import {View, StyleSheet, ScrollView} from 'react-native';
-import Button from 'components/button';
-import {useOverlay} from 'uses/useOverlay';
-import {transformSize} from 'utils/transform';
-import Touchable from 'components/touchable';
+import Button from '../../components/button';
+import {useOverlay} from '../../uses/useOverlay';
+import {transformSize} from '../../utils/transform';
+import Touchable from '../../components/touchable';
 
 const OverlayTest = () => {
   const overlay = useOverlay();

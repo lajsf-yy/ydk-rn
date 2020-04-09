@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {View, StyleSheet, ScrollView} from 'react-native';
-import {transformSize} from 'utils';
-import Button from 'components/button';
-import {useToast} from 'uses/useToast';
+import {transformSize} from '../../utils';
+import Button from '../../components/button';
+import {useToast} from '../../uses/useToast';
 
 const ToastTest = () => {
   const toast = useToast();

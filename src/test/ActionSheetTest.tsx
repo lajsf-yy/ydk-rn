@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {View, Alert, ScrollView, StyleSheet} from 'react-native';
-import {useActionSheet} from 'uses/useActionSheet';
-import Button from 'components/button';
-import {transformSize} from 'utils/transform';
+import {useActionSheet} from '../../uses/useActionSheet';
+import Button from '../../components/button';
+import {transformSize} from '../../utils/transform';
 
 /**
  * 一般场景

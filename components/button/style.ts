@@ -1,5 +1,5 @@
-import {transformSize} from './../../utils/transform';
-import {GlobalColor} from './../../styles';
+import {transformSize} from '../../utils/transform';
+import {GlobalColor} from 'styles';
 import {ViewStyle, TextStyle} from 'react-native';
 
 export const containerStyle: ViewStyle = {

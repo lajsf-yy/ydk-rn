@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, ScrollView} from 'react-native';
-import Button from 'components/button';
-import {transformSize} from 'utils';
+import Button from '../../components/button';
+import {transformSize} from '../../utils';
 export default class extends React.Component {
   componentDidMount() {}
 

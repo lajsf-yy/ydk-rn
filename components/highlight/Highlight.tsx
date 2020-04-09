@@ -1,6 +1,6 @@
 import React, {useMemo, Fragment} from 'react';
 import {StyleSheet, StyleProp, TextStyle, Text} from 'react-native';
-import {transformSize} from 'utils/transform';
+import {transformSize} from '../../utils/transform';
 
 interface IProps {
   content?: string;

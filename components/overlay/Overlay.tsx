@@ -8,7 +8,7 @@ import {
   Easing,
 } from 'react-native';
 import style from './style';
-import useBackHander from 'uses/useBackHander';
+import {useBackHander} from '../../uses';
 import {TopViewProps, TopViewComponent} from './../topview/TopView';
 
 const screen = Dimensions.get('window');

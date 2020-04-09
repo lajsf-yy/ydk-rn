@@ -16,11 +16,11 @@ import {
   Text,
 } from 'react-native';
 
-import {shallowEqual} from 'utils/comparison';
+import {shallowEqual} from '../../utils/comparison';
 import {PageList} from 'interfaces/FlowList';
 import EndTip from './EndTip';
-import {transformSize} from 'utils/transform';
-import Indictor from 'components/indicator';
+import {transformSize} from '../../utils/transform';
+import Indictor from '../../components/indicator';
 
 export interface FlowProps<ItemT>
   extends Omit<FlatListProps<ItemT>, 'renderItem'> {

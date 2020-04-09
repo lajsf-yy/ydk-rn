@@ -6,8 +6,8 @@ import {
   Text,
   TouchableWithoutFeedback,
 } from 'react-native';
-import {TopViewProps} from 'components/topview/TopView';
-import {transformSize} from 'utils/transform';
+import {TopViewProps} from '../../components/topview/TopView';
+import {transformSize} from '../../utils/transform';
 export interface ActionSheetOptions {
   colorOptions?: string[];
 }

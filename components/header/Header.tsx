@@ -14,7 +14,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import assets from 'assets';
-import {transformSize} from 'utils/transform';
+import {transformSize} from '../../utils/transform';
 
 Platform.OS === 'android' && StatusBar.setTranslucent(true);
 interface Props {

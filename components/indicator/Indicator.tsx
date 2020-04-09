@@ -1,28 +1,36 @@
-import React, { useEffect, useState } from 'react'
-import { View, Text, StyleSheet, Image, StyleProp, TextStyle, ViewStyle } from 'react-native'
-import assets from 'assets'
-import Touchable from './../touchable'
-import { transformSize } from 'utils/transform'
+import React, {useEffect, useState} from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  StyleProp,
+  TextStyle,
+  ViewStyle,
+} from 'react-native';
+import assets from 'assets';
+import Touchable from './../touchable';
+import {transformSize} from '../../utils/transform';
 
 interface Props {
-  image?: any
-  preset?: keyof typeof presets
-  title?: string
-  content?: string
-  contentFontSize?: number
-  contentTextAlign?:  'auto' | 'left' | 'right' | 'center' | 'justify'
-  actionTitle?: string
-  actionTitleStyle?: TextStyle
-  actionViewStyle?: TextStyle
-  textColor?: string
-  style?: any
-  onAction?: () => void
+  image?: any;
+  preset?: keyof typeof presets;
+  title?: string;
+  content?: string;
+  contentFontSize?: number;
+  contentTextAlign?: 'auto' | 'left' | 'right' | 'center' | 'justify';
+  actionTitle?: string;
+  actionTitleStyle?: TextStyle;
+  actionViewStyle?: TextStyle;
+  textColor?: string;
+  style?: any;
+  onAction?: () => void;
 }
 interface MessagePreset {
-  image: string
-  content: string
+  image: string;
+  content: string;
 }
-const presets: { [key: string]: MessagePreset } = {
+const presets: {[key: string]: MessagePreset} = {
   'no-address': {
     image: assets.empty.no_address,
     content: '您还没有填写收货地址哦~',
@@ -92,7 +100,7 @@ const presets: { [key: string]: MessagePreset } = {
     image: assets.empty.no_data,
     content: '页面错误！',
   },
-}
+};
 
 const Indictor: React.FC<Props> = ({
   image,
@@ -104,36 +112,38 @@ const Indictor: React.FC<Props> = ({
   textColor = 'black',
   contentTextAlign = 'center',
   onAction,
-  style = { paddingVertical: transformSize(250) },
+  style = {paddingVertical: transformSize(250)},
   ...props
 }) => {
-  const [config, setConfig] = useState({} as any)
+  const [config, setConfig] = useState({} as any);
   const handleAction = () => {
     if (!onAction) {
-      throw new Error('`onAction` is required if there is an action button.')
+      throw new Error('`onAction` is required if there is an action button.');
     }
 
-    onAction()
-  }
+    onAction();
+  };
   useEffect(() => {
     if (preset) {
-      setConfig(presets[preset] || {})
+      setConfig(presets[preset] || {});
     } else {
       setConfig({
         image: image,
         title: title,
         content: content,
         actionTitle: actionTitle,
-      })
+      });
     }
-  }, [preset, image, title, content, actionTitle])
+  }, [preset, image, title, content, actionTitle]);
 
   const renderImage = () => {
-    return config.image ? <Image source={config.image} style={s.image} /> : null
-  }
+    return config.image ? (
+      <Image source={config.image} style={s.image} />
+    ) : null;
+  };
   const renderTitle = () => {
-    return config.title ? <Text style={s.title}>{config.title}</Text> : null
-  }
+    return config.title ? <Text style={s.title}>{config.title}</Text> : null;
+  };
 
   const renderContent = () => {
     return config.content ? (
@@ -149,21 +159,28 @@ const Indictor: React.FC<Props> = ({
         ]}>
         {config.content}
       </Text>
-    ) : null
-  }
+    ) : null;
+  };
   const actionButton = () => {
     return actionTitle ? (
-      <Touchable activeOpacity={1} onPress={handleAction} style={[s.actionButton, props.actionViewStyle]}>
+      <Touchable
+        activeOpacity={1}
+        onPress={handleAction}
+        style={[s.actionButton, props.actionViewStyle]}>
         <Text
           style={[
-            { color: '#1f1f1f', fontSize: transformSize(32), paddingHorizontal: transformSize(38) },
+            {
+              color: '#1f1f1f',
+              fontSize: transformSize(32),
+              paddingHorizontal: transformSize(38),
+            },
             props.actionTitleStyle,
           ]}>
           {actionTitle}
         </Text>
       </Touchable>
-    ) : null
-  }
+    ) : null;
+  };
   return (
     <View style={[s.main].concat(style)}>
       {renderImage()}
@@ -171,9 +188,9 @@ const Indictor: React.FC<Props> = ({
       {renderContent()}
       {actionButton()}
     </View>
-  )
-}
-export default Indictor
+  );
+};
+export default Indictor;
 
 const s = StyleSheet.create({
   main: {
@@ -205,4 +222,4 @@ const s = StyleSheet.create({
     borderRadius: transformSize(10),
     marginTop: transformSize(40),
   },
-})
+});
