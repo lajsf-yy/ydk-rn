@@ -1,42 +1,45 @@
-import React, { useState, useRef } from 'react'
-import { View, InteractionManager } from 'react-native'
-export type Dismiss = (data?: any) => void
+import React, {useState, useRef} from 'react';
+import {View, InteractionManager} from 'react-native';
+export type Dismiss = (data?: any) => void;
 export interface TopViewProps {
-  onDismiss: Dismiss
+  onDismiss: Dismiss;
 }
-export type TopViewComponent = React.ComponentType<TopViewProps>
+export type TopViewComponent = React.ComponentType<TopViewProps>;
 interface TopViewContext {
-  show(TopViewComponent: TopViewComponent): Promise<any>
+  show(TopViewComponent: TopViewComponent): Promise<any>;
 }
-let instanceKey = 0
-export const TopViewContext = React.createContext(null as TopViewContext)
+let instanceKey = 0;
+export const TopViewContext = React.createContext(null as TopViewContext);
 const TopViewProvider: React.FC = props => {
-  const instances = useRef(new Map<number, any>())
-  let [children, setChildren] = useState([])
-  const isShowing = useRef(false)
+  const instances = useRef(new Map<number, any>());
+  let [children, setChildren] = useState([]);
+  const isShowing = useRef(false);
   const show = (TopViewComponent: TopViewComponent) => {
-    if (isShowing.current) return
+    if (isShowing.current) return;
     return new Promise(resolve => {
-      const key = ++instanceKey
-      isShowing.current = true
+      const key = ++instanceKey;
+      isShowing.current = true;
       const onDismiss: Dismiss = data => {
-        instances.current.delete(key)
-        children = [...instances.current.values()]
+        instances.current.delete(key);
+        children = [...instances.current.values()];
         // console.warn('topview', children.length)
-        isShowing.current = false
-        setChildren(children)
-        resolve(data)
-      }
-      instances.current.set(key, <TopViewComponent key={key} onDismiss={onDismiss} />)
+        isShowing.current = false;
+        setChildren(children);
+        resolve(data);
+      };
+      instances.current.set(
+        key,
+        <TopViewComponent key={key} onDismiss={onDismiss} />,
+      );
 
       requestAnimationFrame(() => {
-        setChildren([...instances.current.values()])
-      })
-    })
-  }
+        setChildren([...instances.current.values()]);
+      });
+    });
+  };
 
   return (
-    <TopViewContext.Provider value={{ show }}>
+    <TopViewContext.Provider value={{show}}>
       <React.Fragment>
         {props.children}
         {[...instances.current.keys()].map(key => (
@@ -44,8 +47,8 @@ const TopViewProvider: React.FC = props => {
             removeClippedSubviews={false}
             onLayout={() => {
               InteractionManager.runAfterInteractions(() => {
-                isShowing.current = false
-              })
+                isShowing.current = false;
+              });
             }}
             key={key}
             style={{
@@ -62,7 +65,7 @@ const TopViewProvider: React.FC = props => {
         ))}
       </React.Fragment>
     </TopViewContext.Provider>
-  )
-}
+  );
+};
 
 export default TopViewProvider;

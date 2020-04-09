@@ -1,19 +1,20 @@
-import React, { useMemo, useCallback } from 'react'
+import React, {useMemo, useCallback} from 'react';
 import {
-  ActionSheetIOS,
   ActionSheetIOSOptions,
   View,
   StyleSheet,
   Text,
-  TouchableHighlight,
   TouchableWithoutFeedback,
-} from 'react-native'
-import { TopViewProps } from 'components/topview/TopView'
-import { transformSize } from 'utils/transform'
+} from 'react-native';
+import {TopViewProps} from 'components/topview/TopView';
+import {transformSize} from 'utils/transform';
 export interface ActionSheetOptions {
-  colorOptions?: string[]
+  colorOptions?: string[];
 }
-const ActionSheetContainer: React.FC<ActionSheetIOSOptions & TopViewProps & ActionSheetOptions> = ({
+
+const ActionSheetContainer: React.FC<ActionSheetIOSOptions &
+  TopViewProps &
+  ActionSheetOptions> = ({
   title,
   message,
   options,
@@ -24,51 +25,63 @@ const ActionSheetContainer: React.FC<ActionSheetIOSOptions & TopViewProps & Acti
   ...props
 }) => {
   const titleDom = useMemo(() => {
-    if (!title) return null
+    if (!title) return null;
     return (
       <View style={s.titleBox}>
         <Text style={s.titleText}>{title}</Text>
       </View>
-    )
-  }, [title])
+    );
+  }, [title]);
+
   const messageDom = useMemo(() => {
-    if (!message) return null
+    if (!message) return null;
     return (
       <View style={s.messageBox}>
         <Text style={s.messageText}>{message}</Text>
       </View>
-    )
-  }, [message])
+    );
+  }, [message]);
+
   return (
     <View>
       <View style={s.options}>
         {titleDom}
         {messageDom}
         {options.map((title, index) => {
-          if (cancelButtonIndex === index) return null
-          const colors = (colorOptions && colorOptions.length > index && colorOptions[index]) || tintColor
+          if (cancelButtonIndex === index) return null;
+          const colors =
+            (colorOptions &&
+              colorOptions.length > index &&
+              colorOptions[index]) ||
+            tintColor;
           return (
             <View key={index}>
               <TouchableWithoutFeedback onPress={() => props.onDismiss(index)}>
                 <View style={s.buttonBox}>
-                  <Text style={[s.buttonText, { color: colors }]}>{title}</Text>
+                  <Text style={[s.buttonText, {color: colors}]}>{title}</Text>
                 </View>
               </TouchableWithoutFeedback>
 
               {index < options.length - 1 && <View style={s.line}></View>}
             </View>
-          )
+          );
         })}
       </View>
-      <TouchableWithoutFeedback key={cancelButtonIndex} onPress={() => props.onDismiss(cancelButtonIndex)}>
+      <TouchableWithoutFeedback
+        key={cancelButtonIndex}
+        onPress={() => props.onDismiss(cancelButtonIndex)}>
         <View style={s.cancelButtonBox}>
-          <Text style={[s.buttonText, { color: tintColor }]}>{options[cancelButtonIndex]}</Text>
+          <Text style={[s.buttonText, {color: tintColor}]}>
+            {options[cancelButtonIndex]}
+          </Text>
         </View>
       </TouchableWithoutFeedback>
     </View>
-  )
-}
-export default ActionSheetContainer
+  );
+};
+
+export default ActionSheetContainer;
+
 const s = StyleSheet.create({
   options: {
     marginHorizontal: transformSize(18),
@@ -129,4 +142,4 @@ const s = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#fff',
   },
-})
+});
