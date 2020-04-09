@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, AsyncStorage, ScrollView} from 'react-native';
+import {View, AsyncStorage, ScrollView, Text} from 'react-native';
 import Header from 'components/header/Header';
 
 export default class extends React.Component {
@@ -11,10 +11,10 @@ export default class extends React.Component {
   render() {
     return (
       <View style={{flex: 1}} >
-        <Header></Header>
-        <ScrollView>
-            
-        </ScrollView>
+        <Header title="这个是header" 
+                titleStyle={{color: "red"}} 
+                right={<View><Text>这个是右边的</Text></View>}>
+        </Header>
       </View>
     ) 
   }

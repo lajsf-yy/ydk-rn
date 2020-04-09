@@ -11,12 +11,10 @@ export default class extends React.Component {
   render() {
     return (
       <View style={{flex: 1}} >
-        <ScrollView>
-            <Button >确定</Button>
-            <Button type="ghost">确定</Button>
-            <Button type="ghost" disabled>确定</Button>
+            <Button>默认</Button>
+            <Button type="ghost">ghost</Button>
+            <Button type="ghost" disabled>disabled</Button>
             <Button type="ghost" size="small">确定</Button>
-        </ScrollView>
       </View>
     ) 
   }

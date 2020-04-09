@@ -9,9 +9,8 @@ const SwitchTest = () => {
     <View style={{flex: 1}} >
       <ScrollView>
         <Switch
-          trackColor={{ true: '#41D282', false: '#999' }}
+          trackColor={{ true: '#41D282', false: 'pink' }}
           onValueChange={(newValue: boolean) => {
-            console.warn(newValue)
             setCharge(newValue)
           }}
           value={charge}

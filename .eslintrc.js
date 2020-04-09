@@ -1,4 +1,21 @@
 module.exports = {
   root: true,
   extends: '@react-native-community',
+  rules: {
+    'no-console': [2, { allow: ['log', 'error'] }],
+    '@typescript-eslint/no-unused-vars': 0,
+    '@typescript-eslint/explicit-function-return-type': 0,
+    '@typescript-eslint/explicit-member-accessibility': 0,
+    '@typescript-eslint/prefer-interface': 0,
+    '@typescript-eslint/no-use-before-define': 0,
+    '@typescript-eslint/camelcase': 0,
+    '@typescript-eslint/no-triple-slash-reference': 0,
+    '@typescript-eslint/no-var-requires': 0,
+    '@typescript-eslint/no-explicit-any': 0,
+    '@typescript-eslint/interface-name-prefix': 1,
+    'react-hooks/rules-of-hooks': 'error',
+    '@typescript-eslint/no-empty-interface': 1,
+    'react-hooks/exhaustive-deps': 'warn',
+    '@typescript-eslint/no-object-literal-type-assertion': [0, { 'allow-arguments': 2 }],
+  },
 };

@@ -1,37 +1,32 @@
+/**
+ * @format
+ */
 import React from 'react';
-import {View, ScrollView, Text} from 'react-native';
-import ButtonTest from './test/ButtonTest';
-import FlowListTest from 'test/FlowListTest';
-import CheckboxTest from 'test/CheckboxTest';
-import StarScore from 'components/star-score/StarScore';
-import HeaderTest from 'test/HeaderTest';
-import ToastTest from 'test/ToastTest';
-import OverlayTest from 'test/OverlayTest';
-import ActionSheetTest from 'test/ActionSheetTest';
-import SearchBar from 'components/search-bar';
-import SearchBarTest from 'test/SearchBarTest';
+import {AppRegistry, Alert, View} from 'react-native';
+import {name as appName} from './../app.json';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import TopViewProvider from 'components/topview/TopView';
+import Screens from "./test"
+import Home from './home'
+const Stack = createStackNavigator();
 
-export default class App extends React.Component {
+const App = () => {
+  return (
+    <TopViewProvider>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName={appName}>
+          {
+            Object.keys(Screens).map((key) => {
+              return  <Stack.Screen name={key} component={Screens[key]} key={key}></Stack.Screen>
+            })
+          }
+        <Stack.Screen name={appName} component={Home}></Stack.Screen>
+        </Stack.Navigator>
+      </NavigationContainer>
+    </TopViewProvider>
 
-  componentDidMount() {
-    
-  }
-
-  render() {
-    return (
-      <View style={{flex: 1}} >
-        <HeaderTest></HeaderTest>
-        <SearchBarTest></SearchBarTest>
-        <ScrollView>
-            <ButtonTest></ButtonTest>
-            {/* <FlowListTest></FlowListTest> */}
-            <CheckboxTest></CheckboxTest>
-            <StarScore></StarScore>
-            <ToastTest></ToastTest>
-            <OverlayTest></OverlayTest>
-            <ActionSheetTest></ActionSheetTest>
-        </ScrollView>
-      </View>
-    ) 
-  }
+  );
 }
+
+export default App;
