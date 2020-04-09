@@ -7,9 +7,9 @@ import {useNavigation} from '@react-navigation/native';
 const Home = () => {
   const navigation = useNavigation();
   return (
-    <View style={{flex: 1, backgroundColor: 'pink'}}>
+    <View style={{flex: 1, backgroundColor: 'white'}}>
       <Button
-        title="button"
+        title="Button"
         onPress={() => {
           navigation.navigate('ButtonTestScreen');
         }}>
@@ -37,7 +37,7 @@ const Home = () => {
         Header
       </Button>
       <Button
-        title="toast"
+        title="Toast"
         onPress={() => {
           navigation.navigate('ToastTestScreen');
         }}>
