@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
-    "rootDir": "src",
+    "baseUrl": "./example",
+    "rootDir": "example",
     "module": "esnext",
     "target": "es6",
     "lib": ["es6", "es2017"],
@@ -28,9 +28,9 @@
     "acceptance-tests",
     "webpack",
     "jest",
-    "src/index.js",
+    "example/index.js",
     "config-overrides.js",
-    "src/constants/env.json",
+    "example/constants/env.json",
     "node_modules/@types/node/index.d.ts"
   ]
 }

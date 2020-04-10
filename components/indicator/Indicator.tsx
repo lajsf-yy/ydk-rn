@@ -30,74 +30,74 @@ interface MessagePreset {
   image: string;
   content: string;
 }
+
 const presets: {[key: string]: MessagePreset} = {
   'no-address': {
-    image: assets.empty.no_address,
+    image: require('./images/no_address.png'),
     content: '您还没有填写收货地址哦~',
   },
   'no-cart': {
-    image: assets.empty.no_cart,
+    image: require('./images/no_cart.png'),
     content: '购物车竟然是空的~',
   },
   'no-collect': {
-    image: assets.empty.no_collect,
+    image: require('./images/no_collect.png'),
     content: '暂无收藏内容~',
   },
   'no-comment': {
-    image: assets.empty.no_comment,
+    image: require('./images/no_comment.png'),
     content: '暂无评论',
   },
   'no-course': {
-    image: assets.empty.no_course,
+    image: require('./images/no_course.png'),
     content: '您还没有课程哦~',
   },
   'no-data': {
-    image: assets.empty.no_data,
+    image: require('./images/no_data.png'),
     content: '暂无相关数据',
   },
   'no-earnings': {
-    image: assets.empty.no_earnings,
+    image: require('./images/no_earnings.png'),
     content: '暂无收益数据，要加把力啦~',
   },
   'no-follow': {
-    image: assets.empty.no_follow,
+    image: require('./images/no_follow.png'),
     content: '还没有关注~',
   },
   'no-message': {
-    image: assets.empty.no_message,
+    image: require('./images/no_message.png'),
     content: '哎呀，竟然一条消息也没有~',
   },
   'no-network': {
-    image: assets.empty.no_network,
+    image: require('./images/no_network.png'),
     content: '内容加载失败，请检查网络',
   },
   'no-order': {
-    image: assets.empty.no_order,
+    image: require('./images/no_order.png'),
     content: '您目前没有订单哦~',
   },
   'no-report': {
-    image: assets.empty.no_report,
+    image: require('./images/no_report.png'),
     content: '您目前没有报告哦~',
   },
   'no-search': {
-    image: assets.empty.no_search,
+    image: require('./images/no_search.png'),
     content: '未搜索到内容',
   },
   'sold-out': {
-    image: assets.empty.no_data,
+    image: require('./images/no_data.png'),
     content: '商品过期不存在~',
   },
   shield: {
-    image: assets.empty.no_data,
+    image: require('./images/no_data.png'),
     content: '内容已下架',
   },
-
   'request-delete': {
-    image: assets.empty.no_cart,
+    image: require('./images/no_cart.png'),
     content: '访问内容被删除！',
   },
   'request-fail': {
-    image: assets.empty.no_data,
+    image: require('./images/no_data.png'),
     content: '页面错误！',
   },
 };

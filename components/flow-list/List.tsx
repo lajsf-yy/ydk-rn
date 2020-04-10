@@ -17,10 +17,20 @@ import {
 } from 'react-native';
 
 import {shallowEqual} from '../../utils/comparison';
-import {PageList} from 'interfaces/FlowList';
+
 import EndTip from './EndTip';
 import {transformSize} from '../../utils/transform';
 import Indictor from '../../components/indicator';
+export interface PageList<T> {
+  /** 数据总条数，前端接口可忽略改字段 */
+  count?: number;
+  /** 数据集合 */
+  entities?: T[];
+  /** 当前页码 */
+  pageNo?: number;
+  /** 每页条数 */
+  pageSize?: number;
+}
 
 export interface FlowProps<ItemT>
   extends Omit<FlatListProps<ItemT>, 'renderItem'> {

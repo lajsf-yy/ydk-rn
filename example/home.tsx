@@ -13,51 +13,57 @@ const Home = () => {
         title="Button"
         onPress={() => {
           navigation.navigate('ButtonTestScreen');
-        }}>
-        button
-      </Button>
+        }}
+      />
+
       <Button
         title="ActionSheet"
         onPress={() => {
           navigation.navigate('ActionSheetTestScrren');
-        }}>
-        button
-      </Button>
+        }}
+      />
+
       <Button
         title="FlowList"
         onPress={() => {
           navigation.navigate('FlowListTestScreen');
-        }}>
-        button
-      </Button>
+        }}
+      />
+
       <Button
         title="Header"
         onPress={() => {
           navigation.navigate('HeaderTestScreen');
-        }}>
-        Header
-      </Button>
+        }}
+      />
+
       <Button
         title="Toast"
         onPress={() => {
           navigation.navigate('ToastTestScreen');
-        }}>
-        Header
-      </Button>
+        }}
+      />
+
       <Button
         title="Overlay"
         onPress={() => {
           navigation.navigate('OverlayTestScreen');
-        }}>
-        Header
-      </Button>
+        }}
+      />
+
       <Button
         title="Switch"
         onPress={() => {
           navigation.navigate('SwitchTestScreen');
-        }}>
-        Header
-      </Button>
+        }}
+      />
+
+      <Button
+        title="Indicator"
+        onPress={() => {
+          navigation.navigate('IndicatorTest');
+        }}
+      />
     </View>
   );
 };

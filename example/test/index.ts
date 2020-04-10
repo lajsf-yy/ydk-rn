@@ -5,6 +5,7 @@ import HeaderTestScreen from './HeaderTest';
 import ToastTestScreen from './ToastTest';
 import OverlayTestScreen from './OverlayTest';
 import SwitchTestScreen from './SwitchTest';
+import IndicatorTest from './IndicatorTest';
 export default {
   ActionSheetTestScrren,
   ButtonTestScreen,
@@ -13,4 +14,5 @@ export default {
   ToastTestScreen,
   OverlayTestScreen,
   SwitchTestScreen,
+  IndicatorTest,
 };

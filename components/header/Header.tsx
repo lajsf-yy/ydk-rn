@@ -13,8 +13,11 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
-import assets from 'assets';
+
 import {transformSize} from '../../utils/transform';
+
+const arrow_left_white = require('./images/arrow_left_white.png');
+const arrow_left_black = require('./images/arrow_left_black.png');
 
 Platform.OS === 'android' && StatusBar.setTranslucent(true);
 interface Props {
@@ -77,9 +80,7 @@ export default class Header extends React.Component<Props> {
           <AnimatedImage
             resizeMode="cover"
             source={
-              this.props.translucent
-                ? assets.empty.arrow_left_white
-                : assets.empty.arrow_left_black
+              this.props.translucent ? arrow_left_white : arrow_left_black
             }
             style={[s.backImage, this.props.leftStyle]}
           />

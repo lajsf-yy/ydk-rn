@@ -1,2 +1,2 @@
-import TopView from "./TopView";
+import TopView from './TopView';
 export default TopView;
